@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const Participant = ({ participant }) => {
+const Participant = ({ participant, localParticipant = false }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
 
@@ -44,13 +44,36 @@ const Participant = ({ participant }) => {
     [participant]
   );
 
+  useEffect(
+    () => {
+      const videoTrack = videoTracks[0];
+      if (videoTrack) {
+        videoTrack.attach(videoRef.current);
+        return () => {
+          videoTrack.detach();
+        };
+      }
+    },
+    [videoTracks]
+  );
+
+  useEffect(() => {
+    const audioTrack = audioTracks[0];
+    if (audioTrack) {
+      audioTrack.attach(audioRef.current);
+      return () => {
+        audioTrack.detach();
+      };
+    }
+  });
+
   return (
     <div className="participant">
       <h3>
-        {participant.identity}
+        {!localParticipant ? participant.identity : <span>Me</span>}
       </h3>
-      <video ref={videoRef} autoplay={true} />
-      <audio ref={audioRef} autoplay={true} muted={true} />
+      <video ref={videoRef} autoplay={true} title={participant.identity} />
+      <audio ref={audioRef} autoplay={true} muted={false} />
     </div>
   );
 };

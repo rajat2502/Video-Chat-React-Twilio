@@ -18,7 +18,7 @@ const App = () => {
           <span role="img" aria-label="React">
             ⚛
           </span>{" "}
-          by <a href="/">Rajat</a>
+          by <a href="https://github.com/rajat2502">Rajat</a>
         </p>
       </footer>
     </div>

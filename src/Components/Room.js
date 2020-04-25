@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Video from "twilio-video";
+import Participant from "./Participant";
 
 const Room = ({ roomName, token, leaveRoom }) => {
   const [room, setRoom] = useState(null);
@@ -53,19 +54,16 @@ const Room = ({ roomName, token, leaveRoom }) => {
         Room: {roomName}
       </h2>
       <button onClick={leaveRoom}>Leave Room</button>
-      <div className="local-participant">
-        {room &&
-          <p key={room.localParticipant.sid}>
-            {room.localParticipant.identity}
-          </p>}
-      </div>
-      <h3>Remote Participants</h3>
       <div className="remote-participants">
         {participants.map(participant =>
-          <p key={participant.sid}>
-            {participant.identity}
-          </p>
+          <Participant key={participant.sid} participant={participant} />
         )}
+        {room &&
+          <Participant
+            key={room.localParticipant.sid}
+            participant={room.localParticipant}
+            localParticipant={true}
+          />}
       </div>
     </div>
   );
