@@ -32,7 +32,7 @@ const Lobby = ({
           required
         />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit">Submit Details</button>
     </form>
   );
 };

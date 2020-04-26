@@ -48,6 +48,13 @@ const Room = ({ roomName, token, leaveRoom }) => {
     [roomName, token]
   );
 
+  useEffect(() => {
+    document.title = `${roomName} | Video Chat`;
+    return () => {
+      document.title = "Video Chat React";
+    };
+  });
+
   return (
     <div className="room">
       <h2>
