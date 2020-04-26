@@ -13,7 +13,6 @@ header {
   color: #fff;
   text-align: center;
   flex-grow: 0;
-  margin-bottom: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,13 +82,14 @@ button {
   padding: 5px 12px;
   border-radius: 6px;
   border: 1px solid transparent;
+  cursor: pointer;
 }
 button:hover {
   filter: brightness(150%);
 }
 
 button:focus {
-  outline: 2px solid #0082f1;
+  outline: none;
 }
 
 .room {
@@ -109,25 +109,45 @@ button:focus {
   margin-bottom: 1em;
 }
 
-.local-participant {
-  text-align: center;
-  margin-bottom: 2em;
-}
-.remote-participants {
+.room-box {
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-between;
+}
+
+.participants {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
   padding: 0 2em 2em;
+  flex-shrink: 0;
+  height: 75vh;
+  overflow-y: scroll;
 }
 .participant {
-  border-radius: 6px;
   display: inline-block;
-  margin-right: 10px;
+  margin-bottom: 12px;
   position: relative;
+  border: 4px solid #003d72;
+  border-radius: 4px;
 }
+
+.selected-participant {
+  padding: 0 2em 2em;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.selected-participant > div {
+  width: 100%;
+  max-height: 75vh;
+  max-width: 75vh;
+}
+
 .participant:last-child {
-  margin-right: 0;
+  margin-bottom: 0;
 }
+
 .participant h3 {
   color: #fff;
   text-align: center;
@@ -147,6 +167,13 @@ video {
   display: block;
   margin: 0 auto;
   height: 190px;
+  object-fit: cover;
+}
+
+.selected-participant video {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
   object-fit: cover;
 }
 

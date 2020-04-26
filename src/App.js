@@ -1,26 +1,18 @@
 import React from "react";
 import "./App.css";
 
+import Header from "./Components/Header";
 import VideoChat from "./Components/VideoChat";
+import Footer from "./Components/Footer";
 
 const App = () => {
   return (
     <div className="app">
-      <header>
-        <h2>Video Chat using React</h2>
-      </header>
+      <Header />
       <main>
         <VideoChat />
       </main>
-      <footer>
-        <p>
-          Made with{" "}
-          <span role="img" aria-label="React">
-            ⚛
-          </span>{" "}
-          by <a href="https://github.com/rajat2502">Rajat</a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

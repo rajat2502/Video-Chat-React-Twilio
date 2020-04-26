@@ -53,17 +53,25 @@ const Room = ({ roomName, token, leaveRoom }) => {
       <h2>
         Room: {roomName}
       </h2>
-      <button onClick={leaveRoom}>Leave Room</button>
-      <div className="remote-participants">
-        {participants.map(participant =>
-          <Participant key={participant.sid} participant={participant} />
-        )}
-        {room &&
-          <Participant
-            key={room.localParticipant.sid}
-            participant={room.localParticipant}
-            localParticipant={true}
-          />}
+      <button onClick={leaveRoom} style={{ margin: "0 2em 2em" }}>
+        Leave Room
+      </button>
+      <div className="room-box">
+        {participants.length &&
+          <div className="selected-participant">
+            <Participant participant={participants[0]} />
+          </div>}
+        <div className="participants">
+          {participants.map(participant =>
+            <Participant key={participant.sid} participant={participant} />
+          )}
+          {room &&
+            <Participant
+              key={room.localParticipant.sid}
+              participant={room.localParticipant}
+              localParticipant={true}
+            />}
+        </div>
       </div>
     </div>
   );
