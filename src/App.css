@@ -1,14 +1,15 @@
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   color: #333e5a;
   min-height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #ececec;
 }
 
 header {
-  background: #f0293e;
+  background: #0083f1;
   color: #fff;
   text-align: center;
   flex-grow: 0;
@@ -39,7 +40,6 @@ h1 {
 }
 
 main {
-  background: #ffffff;
   flex-grow: 1;
 }
 
@@ -49,7 +49,7 @@ form {
 }
 
 h2 {
-  font-weight: 300;
+  font-weight: bold;
   margin-bottom: 1em;
   text-align: center;
 }
@@ -69,18 +69,27 @@ form > div > input {
   padding: 0.4em;
   border-radius: 6px;
   border: 1px solid #333e5a;
+  background: transparent;
+}
+
+form > div > input:focus {
+  outline: 2px solid #0082f1;
 }
 
 button {
-  background: #333e5a;
+  background: #003d72;
   color: #fff;
   font-size: 16px;
-  padding: 0.4em;
+  padding: 5px 12px;
   border-radius: 6px;
   border: 1px solid transparent;
 }
 button:hover {
   filter: brightness(150%);
+}
+
+button:focus {
+  outline: 2px solid #0082f1;
 }
 
 .room {
@@ -90,6 +99,9 @@ button:hover {
   position: absolute;
   top: 0;
   right: 20px;
+}
+.room > h2 {
+  font-weight: bold;
 }
 .room > h3 {
   text-align: center;
@@ -124,8 +136,9 @@ button:hover {
   left: 0;
   right: 0;
   color: white;
-  background: #333e5a;
+  background: #003d72;
   margin: 0;
+  font-size: 1rem;
 }
 
 video {
@@ -138,13 +151,18 @@ video {
 }
 
 footer {
-  background: #333e5a;
+  background: #003d72;
   color: #fff;
   text-align: center;
   flex-grow: 0;
-  padding: 10px 0;
+  padding: 10px;
+}
+
+footer p {
+  margin: 0;
 }
 
 footer a {
   color: #fff;
+  text-decoration: none;
 }

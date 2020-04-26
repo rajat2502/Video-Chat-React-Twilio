@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="app">
       <header>
-        <h2>Video Chat with React</h2>
+        <h2>Video Chat using React</h2>
       </header>
       <main>
         <VideoChat />

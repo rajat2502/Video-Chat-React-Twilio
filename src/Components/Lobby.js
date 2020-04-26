@@ -17,6 +17,7 @@ const Lobby = ({
           id="field"
           value={username}
           onChange={handleUserNameChange}
+          autoFocus
           required
         />
       </div>

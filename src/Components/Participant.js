@@ -73,7 +73,7 @@ const Participant = ({ participant, localParticipant = false }) => {
         {!localParticipant ? participant.identity : <span>Me</span>}
       </h3>
       <video ref={videoRef} autoplay={true} title={participant.identity} />
-      <audio ref={audioRef} autoplay={true} muted={false} />
+      <audio ref={audioRef} autoplay={true} muted={true} />
     </div>
   );
 };

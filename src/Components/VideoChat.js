@@ -23,7 +23,6 @@ const VideoChat = () => {
       const body = JSON.stringify({ identity: username, room: roomName });
       const { data } = await axiosPost("/video/token", body, false);
       setToken(data.token);
-      console.log(data);
     },
     [roomName, username]
   );
